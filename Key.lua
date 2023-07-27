@@ -128,6 +128,40 @@ local function MakeUi(applicationName, name, info, discordInvite)
     top_frame.Name = "TopFrame"
     top_frame.Parent = canvas_group
     
+    local close_btn = Instance.new("TextButton")
+    close_btn.Font = Enum.Font.SourceSans
+    close_btn.Text = ""
+    close_btn.TextColor3 = Color3.new(0, 0, 0)
+    close_btn.TextSize = 14
+    close_btn.BackgroundColor3 = Color3.new(0.117647, 0.117647, 0.117647)
+    close_btn.BorderColor3 = Color3.new(0, 0, 0)
+    close_btn.BorderSizePixel = 0
+    close_btn.Position = UDim2.new(0.942857146, -15, 0.107142858, 0)
+    close_btn.Size = UDim2.new(0, 30, 0, 30)
+    close_btn.Visible = true
+    close_btn.ZIndex = 2
+    close_btn.Name = "CloseBtn"
+    close_btn.Parent = top_frame
+    
+    local uicorner_2 = Instance.new("UICorner")
+    uicorner_2.CornerRadius = UDim.new(0, 5)
+    uicorner_2.Parent = close_btn
+    
+    local clear = Instance.new("ImageButton")
+    clear.Image = "rbxassetid://3926305904"
+    clear.ImageColor3 = Color3.new(0.619608, 0.619608, 0.619608)
+    clear.ImageRectOffset = Vector2.new(924, 724)
+    clear.ImageRectSize = Vector2.new(36, 36)
+    clear.ImageTransparency = 0.10000000149011612
+    clear.AnchorPoint = Vector2.new(0.5, 0.5)
+    clear.BackgroundTransparency = 1
+    clear.LayoutOrder = 3
+    clear.Position = UDim2.new(0.5, 0, 0.5, 0)
+    clear.Size = UDim2.new(0, 20, 0, 20)
+    clear.Visible = true
+    clear.ZIndex = 2
+    clear.Name = "clear"
+    clear.Parent = close_btn
     
     local text_label = Instance.new("TextLabel")
     text_label.Font = Enum.Font.Gotham
@@ -257,6 +291,10 @@ local function MakeUi(applicationName, name, info, discordInvite)
         key_system:Destroy()
         UIMade = false
     end
+
+    close_btn.MouseButton1Click:Connect(function()
+        KeySystemUI.Closed = true;CloseGUI()
+    end)
 
 	local KeyLibrary = loadstring(game:HttpGet('https://raw.githubusercontent.com/MaGiXxScripter0/keysystemv2api/master/setup_obf.lua'))()
 	local KeySystem = KeyLibrary.new(applicationName)
