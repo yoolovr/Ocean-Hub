@@ -127,7 +127,7 @@ local function MakeUi(applicationName, name, info, discordInvite)
     top_frame.Visible = true
     top_frame.Name = "TopFrame"
     top_frame.Parent = canvas_group
-
+    
     
     local text_label = Instance.new("TextLabel")
     text_label.Font = Enum.Font.Gotham
@@ -257,10 +257,6 @@ local function MakeUi(applicationName, name, info, discordInvite)
         key_system:Destroy()
         UIMade = false
     end
-
-    close_btn.MouseButton1Click:Connect(function()
-        KeySystemUI.Closed = true;CloseGUI()
-    end)
 
 	local KeyLibrary = loadstring(game:HttpGet('https://raw.githubusercontent.com/MaGiXxScripter0/keysystemv2api/master/setup_obf.lua'))()
 	local KeySystem = KeyLibrary.new(applicationName)
